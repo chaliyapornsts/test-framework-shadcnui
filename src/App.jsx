@@ -1,12 +1,10 @@
-import { Button } from "@/components/ui/button"
-import './App.css'
+import Nav from './component/Nav'
+import './index.css'
 
 function App() {
   return (
     <>
-      <div>
-        <Button>Click me</Button>
-      </div>
+      <Nav />
     </>
   )
 }
