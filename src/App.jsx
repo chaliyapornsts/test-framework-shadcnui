@@ -1,7 +1,7 @@
 import Nav from './component/Nav'
 import './index.css'
 import Artist from './component/Artist'
-import Photo from './component/photo'
+import Profile from './component/Profile'
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/" element={<Artist />} />
-        <Route path="/2" element={<Photo />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
     </>
   )
 }
 
 export default App
+

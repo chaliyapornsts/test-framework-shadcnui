@@ -11,7 +11,7 @@ const Nav = () => {
                     <a href="#" className="text-gray-600 hover:text-orange-500">Artist</a>
                     <a href="#" className="text-gray-600 hover:text-orange-500">Collections</a>
                     <div>
-                        <img className="w-10" src="./src/assets/Group 197.png" alt="" />
+                        <img className="w-10" src="../src/assets/Group 197.png" alt="" />
                     </div>
                     <a href="#" className="text-gray-600 hover:text-orange-500">Gallery</a>
                     <a href="#" className="text-gray-600 hover:text-orange-500">Museum</a>
