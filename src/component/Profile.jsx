@@ -1,80 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-const data = [
-  { id: 1, imgSrc: '../src/assets/1.jpg', artist: (<>Aaron <br />(แอรอน)</>) },
-  { id: 2, imgSrc: '../src/assets/2.jpg', artist: (<>Abel <br />(อาเบล)</>) },
-  { id: 3, imgSrc: '../src/assets/3.jpg', artist: (<>Aden <br />(เอเดน)</>) },
-  { id: 4, imgSrc: '../src/assets/4.jpg', artist: (<>Adrian <br />(เอเดรียน)</>) },
-  { id: 5, imgSrc: '../src/assets/5.jpg', artist: (<>Amil <br />(เอมิล)</>) },
-  { id: 6, imgSrc: '../src/assets/6.jpg', artist: (<>Amir <br />(เอเมอร์)</>) },
-  { id: 7, imgSrc: '../src/assets/7.jpg', artist: (<>Ashton <br />(แอชตัน)</>) },
-  { id: 8, imgSrc: '../src/assets/8.jpg', artist: (<>Austin <br />(ออสติน)</>) },
-  { id: 9, imgSrc: '../src/assets/9.jpg', artist: (<>Brayden <br />(เบรย์เดน)</>) },
-  { id: 10, imgSrc: '../src/assets/10.jpg', artist: (<>Brooke <br />(บรูค)</>) },
-  { id: 11, imgSrc: '../src/assets/11.jpg', artist: (<>Braxton <br />(แบรกซ์ตัน)</>) },
-  { id: 12, imgSrc: '../src/assets/12.jpg', artist: (<>Brooklyn <br />(บรูคลิน)</>) },
-  { id: 13, imgSrc: '../src/assets/13.jpg', artist: (<>Bible <br />(ไบเบิล)</>) },
-  { id: 14, imgSrc: '../src/assets/14.jpg', artist: (<>Carter <br />(คาร์เตอร์)</>) },
-  { id: 15, imgSrc: '../src/assets/15.jpg', artist: (<>Colton <br />(คอลตัน)</>) },
-  { id: 16, imgSrc: '../src/assets/16.jpg', artist: (<>Cooper <br />(คูเปอร์)</>) },
-  { id: 17, imgSrc: '../src/assets/17.jpg', artist: (<>Dylan <br />(ดีแลน)</>) },
-  { id: 18, imgSrc: '../src/assets/18.jpg', artist: (<>Devin <br />(เดวิน)</>) }
-];
+import data from './data.js';
+import Name from './Name.jsx';
+import Library from './Library.jsx';
+import Documents from './Documents.jsx';
+import Other from './Other.jsx';
 
 const Profile = () => {
   let { id } = useParams();
   const selectData = data.find((item) => item.id === Number(id));
 
+  const [activeTab, setActiveTab] = useState('Name');
+
   if (!selectData) {
     return <div>Artist not found</div>;
   }
 
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div>
       <div className="h-0 pb-[100%] relative">
-        <img className="object-cover w-72 h-72 absolute top-44 bottom-0 left-14 right-0 rounded-full z-10" src={selectData.imgSrc} alt={selectData.artist} />
+        <img className="object-cover w-72 h-72 absolute top-44 bottom-0 left-14 right-0 rounded-full" src={selectData.imgSrc} alt={selectData.artist} />
         <div>
-          <img className="object-cover w-full h-80" src="../src/assets/8.jpg" alt="" />
+          <img className="object-cover w-full h-96 pt-28" src="../src/assets/8.jpg" alt="" />
         </div>
-        <div className='flex flex-col items-center text-center'>
-          <p className='text-3xl pt-10'>{selectData.artist}</p>
-          <h4 className='text-3xl pt-10 pb-10'>BIOGRAPHY</h4>
-          <div className='text-left'>
-            <div className='grid grid-cols-2'>
-              <p className="font-bold">Born :</p>
-              <p>1929, Bangkok</p>
+        <div className='max-w-screen-md mx-auto flex flex-col text-center'>
+          <div className="max-w-screen-xl mx-auto mt-12 mb-8 flex text-center pb-10 relative">
+            <div className="w-1/4 flex justify-center">
+              <p
+                className={`w-44 text-xl cursor-pointer ${activeTab === 'Name' ? 'text-yellow-600' : ''}`}
+                onClick={() => handleTabClick('Name')}
+              >
+                Name
+              </p>
             </div>
-            <div className='grid grid-cols-2'>
-              <p className="font-bold">Passed away :</p>
-              <p>1992</p>
+            <div className="w-1/4 flex justify-center">
+              <p
+                className={`w-44 text-xl cursor-pointer ${activeTab === 'Library' ? 'text-yellow-600' : ''}`}
+                onClick={() => handleTabClick('Library')}
+              >
+                Library
+              </p>
             </div>
-            <div className='grid grid-cols-2'>
-              <p className="font-bold">Education :</p>
-              <p>The School of Fine Arts</p>
+            <div className="w-1/4 flex justify-center">
+              <p
+                className={`w-44 text-xl cursor-pointer ${activeTab === 'Documents' ? 'text-yellow-600' : ''}`}
+                onClick={() => handleTabClick('Documents')}
+              >
+                Documents
+              </p>
             </div>
-            <div className='grid grid-cols-2'>
-              <p className="font-bold">Occupation :</p>
-              <p>- Archaeology Division, The Department of Fine Arts <br />
-                - Traditional Arts Division, The Department of Fine Arts</p>
+            <div className="w-1/4 flex justify-center">
+              <p
+                className={`w-44 text-xl cursor-pointer ${activeTab === 'Other' ? 'text-yellow-600' : ''}`}
+                onClick={() => handleTabClick('Other')}
+              >
+                ...
+              </p>
             </div>
-            <div className='grid grid-cols-2'>
-              <p className="font-bold">Award & Honor</p>
-            </div>
-            <div className='grid grid-cols-2'>
-              <p>1949 :</p>
-              <p>- Bronze Medal Award (Sculpture), 1st National Exhibition of Art, Bangkok <br />
-                - Silver Medal Award (Sculpture), 2nd National Exhibition of Art, Bangkok</p>
-            </div>
-            <div className='grid grid-cols-2'>
-              <p>1950 :</p>
-              <p>1st Prize, The 1st Asian Game in New Delhi, India from the sculpture "Wrestler"</p>
-            </div>
-            <div className='grid grid-cols-2'>
-              <p>1951 :</p>
-              <p>Gold Medal Award (Sculpture), 3rd National Exhibition of Art, Bangkok</p>
-            </div>
+            <div
+              className={`absolute bottom-0 h-1 bg-yellow-600 transition-all duration-500 ease-in-out ${activeTab === 'Name' ? 'left-0 w-1/4' :
+                activeTab === 'Library' ? 'left-1/4 w-1/4' :
+                  activeTab === 'Documents' ? 'left-2/4 w-1/4' :
+                    'left-3/4 w-1/4'
+                }`}
+            ></div>
           </div>
+          {activeTab === 'Name' && <Name selectData={selectData} />}
+          {activeTab === 'Library' && <Library />}
+          {activeTab === 'Documents' && <Documents />}
+          {activeTab === 'Other' && <Other />}
         </div>
       </div>
     </div>
