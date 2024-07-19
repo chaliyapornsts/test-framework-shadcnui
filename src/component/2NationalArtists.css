@@ -1,0 +1,16 @@
+.artist-link {
+    transition: transform 0.3s;
+    transform-style: preserve-3d;
+}
+
+.artist-link:hover {
+    transform: perspective(1000px) rotateY(10deg) rotateX(10deg);
+}
+
+.artist-img2 {
+    transition: box-shadow 0.3s;
+}
+
+.artist-link:hover .artist-img {
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+}

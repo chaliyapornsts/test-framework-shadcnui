@@ -1,0 +1,21 @@
+.pulse-effect {
+    background-color: gray;
+    border-radius: 100%;
+    position: relative;
+    margin: auto;
+}
+
+.circle {
+    position: absolute;
+    background-color: inherit;
+    border-radius: 100%;
+    opacity: 0.5;
+    animation: pulse 2.5s ease-out infinite;
+}
+
+@keyframes pulse {
+    100% {
+      transform: scale(1.15);
+      opacity: 0;
+    }
+}

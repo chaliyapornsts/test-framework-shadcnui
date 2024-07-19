@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import ThaiArtists from './ThaiArtists';
 import NationalArtists from './NationalArtists';
+// import NationalArtists2 from "./2NationalArtists";
+// import NationalArtists3 from "./3NationalArtists";
+// import NationalArtists4 from "./4NationalArtists";
 import Beloved from './Beloved';
 
 const Artist = () => {
@@ -15,7 +18,7 @@ const Artist = () => {
       <div className="flex justify-center items-center pt-40">
         <img src="../src/assets/artist-img.png" alt="" width={400} />
       </div>
-      <div className="max-w-screen-xl mx-auto mt-12 mb-14 flex text-center border-b border-gray-400 pb-10 relative">
+      <div className="max-w-screen-xl mx-auto mt-12 mb-14 flex text-center border-b border-gray-400 w-[95%] pb-10 relative z-20">
         <div className="w-1/3 flex justify-center">
           <p
             className={`w-44 text-xl cursor-pointer ${activeTab === 'ThaiArtists' ? 'text-yellow-600' : ''}`}
@@ -49,6 +52,9 @@ const Artist = () => {
       </div>
       {activeTab === 'ThaiArtists' && <ThaiArtists />}
       {activeTab === 'NationalArtists' && <NationalArtists />}
+      {/* {activeTab === 'NationalArtists' && <NationalArtists2 />} */}
+      {/* {activeTab === 'NationalArtists' && <NationalArtists3 />} */}
+      {/* {activeTab === 'NationalArtists' && <NationalArtists4 />} */}
       {activeTab === 'Beloved' && <Beloved />}
     </div>
   );

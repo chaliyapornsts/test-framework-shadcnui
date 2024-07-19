@@ -6,24 +6,24 @@ const Name = ({ selectData }) => {
   }
 
   return (
-    <div>
+    <div className='h-screen'>
       <p className='text-3xl pt-10'>{selectData.artist}</p>
       <h4 className='text-3xl pt-10 pb-10'>BIOGRAPHY</h4>
-      <div className='text-left'>
+      <div className='text-left mx-5'>
         {selectData.Born && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
+          <div className='grid grid-cols-[150px_1fr]'>
             <p className="font-bold">Born :</p>
             <p>{selectData.Born}</p>
           </div>
         )}
         {selectData.Passedaway && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
+          <div className='grid grid-cols-[150px_1fr]'>
             <p className="font-bold">Passed away :</p>
             <p>{selectData.Passedaway}</p>
           </div>
         )}
         {selectData.Email && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
+          <div className='grid grid-cols-[150px_1fr]'>
             <p className="font-bold">Email :</p>
             <p>
               {selectData.Email.map((email, index) => (
@@ -33,13 +33,13 @@ const Name = ({ selectData }) => {
           </div>
         )}
         {selectData.Education && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
+          <div className='grid grid-cols-[150px_1fr]'>
             <p className="font-bold">Education :</p>
             <p>{selectData.Education}</p>
           </div>
         )}
         {selectData.Occupation && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
+          <div className='grid grid-cols-[150px_1fr]'>
             <p className="font-bold">Occupation :</p>
             <p>
               {selectData.Occupation.map((occupation, index) => (
@@ -49,20 +49,22 @@ const Name = ({ selectData }) => {
           </div>
         )}
         {selectData.Years && selectData.Years.length > 0 && (
-          <div className='grid grid-cols-[200px_minmax(900px,_1fr)]'>
-            <p className="font-bold">Award & Honor</p>
-            <ul>
-              {selectData.Years.map((yearAwards, index) => (
-                <li key={index}>
-                  <p>{selectData.Year[index]}</p>
-                  <ul>
-                    {yearAwards.map((award, awardIndex) => (
-                      <li key={awardIndex}>{award}</li>
-                    ))}
-                  </ul>
-                </li>
+          <div className='grid grid-cols-[150px_1fr]'>
+            <div>
+              <p className="font-bold">Award & Honor</p>
+              {selectData.Year.map((year, index) => (
+                <p key={index}>{year}</p>
               ))}
-            </ul>
+            </div>
+            <div>
+              {selectData.Years.map((yearAwards, index) => (
+                <ul key={index}>
+                  {yearAwards.map((award, awardIndex) => (
+                    <li key={awardIndex}>{award}</li>
+                  ))}
+                </ul>
+              ))}
+            </div>
           </div>
         )}
       </div>

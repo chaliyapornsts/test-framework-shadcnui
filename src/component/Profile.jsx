@@ -22,16 +22,16 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="h-0 pb-[100%] relative">
-        <img className="object-cover w-72 h-72 absolute top-44 bottom-0 left-14 right-0 rounded-full" src={selectData.imgSrc} alt={selectData.artist} />
+      <div className="relative">
+        <img className="object-cover w-[200px] h-[200px] xl:w-[250px] xl:h-[250px] absolute left-5 translate-y-full rounded-full z-1" src={selectData.imgSrc} alt={selectData.artist} />
         <div>
-          <img className="object-cover w-full h-96 pt-28" src="../src/assets/8.jpg" alt="" />
+          <img className="object-cover w-full h-80 xl:h-96 pt-20" src="../src/assets/8.jpg" alt="" />
         </div>
-        <div className='max-w-screen-md mx-auto flex flex-col text-center'>
-          <div className="max-w-screen-xl mx-auto mt-12 mb-8 flex text-center pb-10 relative">
+        <div className='max-w-3xl mx-auto flex flex-col text-center'>
+          <div className="mt-28 xl:mt-12 mb-8 flex text-center pb-10 mx-5 relative z-20">
             <div className="w-1/4 flex justify-center">
               <p
-                className={`w-44 text-xl cursor-pointer ${activeTab === 'Name' ? 'text-yellow-600' : ''}`}
+                className={`text-lg cursor-pointer ${activeTab === 'Name' ? 'text-yellow-600' : ''}`}
                 onClick={() => handleTabClick('Name')}
               >
                 Name
@@ -39,7 +39,7 @@ const Profile = () => {
             </div>
             <div className="w-1/4 flex justify-center">
               <p
-                className={`w-44 text-xl cursor-pointer ${activeTab === 'Library' ? 'text-yellow-600' : ''}`}
+                className={`text-lg cursor-pointer ${activeTab === 'Library' ? 'text-yellow-600' : ''}`}
                 onClick={() => handleTabClick('Library')}
               >
                 Library
@@ -47,7 +47,7 @@ const Profile = () => {
             </div>
             <div className="w-1/4 flex justify-center">
               <p
-                className={`w-44 text-xl cursor-pointer ${activeTab === 'Documents' ? 'text-yellow-600' : ''}`}
+                className={`text-lg cursor-pointer ${activeTab === 'Documents' ? 'text-yellow-600' : ''}`}
                 onClick={() => handleTabClick('Documents')}
               >
                 Documents
@@ -55,7 +55,7 @@ const Profile = () => {
             </div>
             <div className="w-1/4 flex justify-center">
               <p
-                className={`w-44 text-xl cursor-pointer ${activeTab === 'Other' ? 'text-yellow-600' : ''}`}
+                className={`text-lg cursor-pointer ${activeTab === 'Other' ? 'text-yellow-600' : ''}`}
                 onClick={() => handleTabClick('Other')}
               >
                 ...
