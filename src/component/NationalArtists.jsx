@@ -11,11 +11,11 @@ const NationalArtists = () => {
     const [selectedArtist, setSelectedArtist] = useState("");
 
     const filteredData = selectedArtist
-        ? data.filter(item => item.artist.startsWith(selectedArtist))
+        ? data.filter(item => item.artistEn.startsWith(selectedArtist))
         : data;
 
     const groupedData = filteredData.reduce((acc, item) => {
-        const firstChar = item.artist.charAt(0).toUpperCase();
+        const firstChar = item.artistEn.charAt(0).toUpperCase();
         if (!acc[firstChar]) {
             acc[firstChar] = [];
         }
@@ -54,7 +54,7 @@ const NationalArtists = () => {
                         </Button>
                     ))}
                 </div>
-                <div className='lg:hidden mx-10 cursor-pointer relative z-40'>
+                <div className='lg:hidden mx-10 cursor-pointer relative'>
                     <ListFilter onClick={toggleListFilter} />
                     <div
                         className={`fixed z-50 top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isListFilterVisible ? 'translate-x-0' : 'translate-x-full'}`}
@@ -135,10 +135,19 @@ const NationalArtists = () => {
                         <div className="flex flex-wrap">
                             {groupedData[firstChar].map(item => (
                                 <Link key={item.id} className="p-5 w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer" to={`/profile/${item.id}`}>
-                                    <div className="h-0 pb-[100%] relative">
-                                        <img className="artist-img mx-auto object-cover w-full h-full absolute top-0 bottom-0 left-0 right-0" src={item.imgSrc} alt={item.artist} />
+                                    <div className="h-0 pb-[100%] relative group hover:opacity-50">
+                                        <img
+                                            className="transition-custom mx-auto object-cover w-full h-full absolute top-0 bottom-0 left-0 right-0 group-hover:rounded-none group-hover:scale-105"
+                                            src={item.imgSrc}
+                                            alt={item.artist}
+                                        />
+                                        <div className="overlay absolute top-0 left-0 w-full h-full flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                            <p className="text-white text-5xl text-center"><b>{item.artistEn}</b></p>
+                                            <p className="text-white text-sm text-center"><b>{item.artistTh}</b></p>
+                                        </div>
                                     </div>
-                                    <p className="text-center pt-5 font-light"><b>{item.artist}</b></p>
+                                    <p className="text-center pt-5 font-light"><b>{item.artistEn}</b></p>
+                                    <p className="text-center font-light"><b>{item.artistTh}</b></p>
                                 </Link>
                             ))}
                         </div>

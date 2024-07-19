@@ -10,11 +10,11 @@ const NationalArtists4 = () => {
     const [selectedArtist, setSelectedArtist] = useState("");
 
     const filteredData = selectedArtist
-        ? data.filter(item => item.artist.startsWith(selectedArtist))
+        ? data.filter(item => item.artistEn.startsWith(selectedArtist))
         : data;
 
     const groupedData = filteredData.reduce((acc, item) => {
-        const firstChar = item.artist.charAt(0).toUpperCase();
+        const firstChar = item.artistEn.charAt(0).toUpperCase();
         if (!acc[firstChar]) {
             acc[firstChar] = [];
         }
@@ -58,7 +58,8 @@ const NationalArtists4 = () => {
                                         <div className="absolute top-0 bottom-0 left-0 right-0 circle"></div>
                                         <img className="mx-auto object-cover w-full h-full absolute top-0 bottom-0 left-0 right-0 rounded-full" src={item.imgSrc} alt={item.artist} />
                                     </div>
-                                    <p className="text-center pt-5 font-light"><b>{item.artist}</b></p>
+                                    <p className="text-center pt-5 font-light"><b>{item.artistEn}</b></p>
+                                    <p className="text-center font-light"><b>{item.artistTh}</b></p>
                                 </Link>
                             ))}
                         </div>

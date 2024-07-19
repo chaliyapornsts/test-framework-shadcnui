@@ -11,6 +11,6 @@
     transition: box-shadow 0.3s;
 }
 
-.artist-link:hover .artist-img {
+.artist-link:hover .artist-img2 {
     box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
 }
